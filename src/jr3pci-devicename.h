@@ -1,0 +1,6 @@
+#ifndef JR3PCI_DEVICENAME_HEADER
+	#define JR3PCI_DEVICENAME_HEADER
+
+	#define JR3_DEVICE_NAME		"jr3sensor"
+#endif
+

@@ -1,0 +1,9 @@
+*.log
+typekit/*
+build/*
+lib/*
+Debug/*
+*.pc
+html/*
+latex/*
+*~

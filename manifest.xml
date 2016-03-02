@@ -1,0 +1,11 @@
+<package>
+    <description brief="Orocos jr3_task Component package">
+        This package contains the components of the jr3_task package
+    </description>
+    <!--NOTE: set the license and author before you publish this code-->
+    <license>GPL3</license>
+    <author>Wojciech Domski</author>
+    <rosdep name="rtt" />
+    <rosdep name="orogen" />
+</package>
+

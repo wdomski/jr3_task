@@ -1,0 +1,10 @@
+import("jr3_task");
+
+displayComponentTypes();
+
+loadComponent("jr3", "Jr3_task");
+
+#prepare driver
+jr3.prepareDriver("jr3sensor");
+
+#jr3.start();
