@@ -8,6 +8,9 @@
 
 Jr3_task::Jr3_task(std::string const& name) : TaskContext(name){
 
+	this->addOperation("prepareDriver", &Jr3_task::prepareDriver, this, RTT::OwnThread).doc(
+				"Prepare driver").arg("nDevice", "Device name");
+
 	this->addOperation("setDevice", &Jr3_task::setDevice, this, RTT::OwnThread).doc(
 				"Sets device").arg("nr", "Device number 0 or 1");
 
