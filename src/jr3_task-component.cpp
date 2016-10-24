@@ -12,13 +12,13 @@ Jr3_task::Jr3_task(std::string const& name) : TaskContext(name){
 				"Prepare driver").arg("nDevice", "Device name");
 
 	this->addOperation("setDevice", &Jr3_task::setDevice, this, RTT::OwnThread).doc(
-				"Sets device").arg("nr", "Device number 0 or 1");
+				"Sets device").arg("nr", "Device number 0 or 1, default 0");
 
 	this->addOperation("setFilter", &Jr3_task::setFilter, this, RTT::OwnThread).doc(
-				"Sets filter").arg("nr", "Filter number 0 to 6");
+				"Sets filter").arg("nr", "Filter number 0 to 6, default 0");
 
 	this->addOperation("resetOffsets", &Jr3_task::resetOffsets, this, RTT::OwnThread).doc(
-				"Reset offsets");
+				"Reset offsets and retrieves full scale");
 
 	this->ports()->addPort("ForceOutputPort", ForceOutputPort).doc(
 			"Data output port (force and torque)");
@@ -54,7 +54,7 @@ int Jr3_task::prepareDriver(std::string nDevice) {
 void Jr3_task::updateHook(){
   //std::cout << "Jr3_task executes updateHook !" <<std::endl;
 
-	std::vector <int> v;
+	std::vector <float> v;
 
 	Interface->getForce(v);
 

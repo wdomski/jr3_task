@@ -54,6 +54,7 @@ public:
 	 * \brief reset offsets
 	 *
 	 * Reset offsets for force and torques
+	 * and retrieves full scale
 	 */
 	void resetOffsets( void);
 
@@ -67,7 +68,7 @@ public:
 	 *
 	 * F_x, F_y, F_z, M_x, M_y, M_z
 	 */
-	RTT::OutputPort<std::vector<int> > ForceOutputPort;
+	RTT::OutputPort<std::vector<float> > ForceOutputPort;
 
 private:
 

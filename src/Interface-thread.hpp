@@ -54,7 +54,7 @@ public:
 	int getForce( void);
 
 	//get forces to a vector
-	void getForce( std::vector<int> & v);
+	void getForce( std::vector<float> & v);
 
 	//set filter
 	void setFilter( int f);
@@ -64,7 +64,7 @@ public:
 	//reset driver
 	void resetDevice(void);
 
-	//reset offsets
+	//reset offsets and gets full scale
 	void resetOffsets(void);
 
 	//reet driver with specific name
@@ -89,7 +89,7 @@ private:
 	int device;
 
 	jr3_force_array scale;
-	jr3_six_axis_array force;
+	float force[6];
 	jr3_six_axis_array force_raw;
 
 };

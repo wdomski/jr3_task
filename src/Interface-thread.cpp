@@ -55,8 +55,8 @@ void Interface_thread::step(void) {
 		//scale data
 		for( int i = 0; i < 3; ++i)
 		{
-			force.f[i] = force_raw.f[i]*scale.f[i]/16384;
-			force.m[i] = force_raw.m[i]*scale.m[i]/16384;
+			force[i]   = (float)force_raw.f[i]*(float)scale.f[i]/16384.0f;
+			force[i+3] = (float)force_raw.m[i]*(float)scale.m[i]/16384.0f;
 		}
 
 	mutexCard.unlock();
@@ -92,6 +92,7 @@ void Interface_thread::resetOffsets(void)
 	mutexConf.unlock();
 
 	mutexCard.lock();
+	err = jr3_ioctl(jr3, IOCTL0_JR3_GET_FULL_SCALES, (void *)&scale);
 	err = jr3_ioctl(jr3, IOCTLx_JR3_ZEROOFFS(td), (void *)NULL);
 	mutexCard.unlock();
 }
@@ -166,12 +167,10 @@ int Interface_thread::stopDriver(void) {
 	return 0;
 }
 
-void Interface_thread::getForce( std::vector<int> & v)
+void Interface_thread::getForce( std::vector<float> & v)
 {
 	mutexData.lock();
-	for(int i = 0; i < 3; ++i)
-		v.push_back(force.f[i]);
-	for(int i = 0; i < 3; ++i)
-		v.push_back(force.m[i]);
+	for(int i = 0; i < 6; ++i)
+		v.push_back(force[i]);
 	mutexData.unlock();
 }

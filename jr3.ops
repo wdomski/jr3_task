@@ -7,4 +7,6 @@ loadComponent("jr3", "Jr3_task");
 #prepare driver
 jr3.prepareDriver("jr3sensor");
 
+jr3.resetOffsets();
+
 #jr3.start();
