@@ -8,7 +8,7 @@
 #include <rtt/RTT.hpp>
 
 #include "Interface-thread.hpp"
-
+#include <std_msgs/Float32MultiArray.h>
 #include <string>
 
 class Jr3_task: public RTT::TaskContext {
@@ -68,7 +68,7 @@ public:
 	 *
 	 * F_x, F_y, F_z, M_x, M_y, M_z
 	 */
-	RTT::OutputPort<std::vector<float> > ForceOutputPort;
+	RTT::OutputPort<std_msgs::Float32MultiArray> ForceOutputPort;
 
 private:
 

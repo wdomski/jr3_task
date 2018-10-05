@@ -55,10 +55,12 @@ void Jr3_task::updateHook(){
   //std::cout << "Jr3_task executes updateHook !" <<std::endl;
 
 	std::vector <float> v;
+	std_msgs::Float32MultiArray port;
 
 	Interface->getForce(v);
+	port.data = v;
 
-	ForceOutputPort.write(v);
+	ForceOutputPort.write(port);
 }
 
 void Jr3_task::stopHook() {
